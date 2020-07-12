@@ -3,4 +3,4 @@ Un trabajo universitario el cual utilice para aprender firebase, y probar bulma 
 
 [Ir al proyecto](https://proyecto-parqueadero.web.app/)
 
-@yoiler_cordoba
+[@yoiler_cordoba](https://twitter.com/yoiler_cordoba)
