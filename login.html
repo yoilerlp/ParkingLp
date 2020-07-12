@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bulma/bulma-theme.css">
+    <!--link(rel="icon" href="favicon.ico")-->
+    <link rel="icon" href="./imagenes/logo.png">
+    <title>Login - Admin</title>
+</head>
+
+<body>
+
+    <nav class="navbar bordeRadio">
+        <div class="container">
+            <div class="navbar-brand"><a class="navbar-item" href="./index.html">ParkinLP</a><a id="menu-movil"
+                    class="navbar-burger" role="button" aria-label="menu" aria-expanded="false"><span
+                        aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></a>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-start"><a class="navbar-item" href="./index.html">Home</a><a class="navbar-item"
+                        href="./afiliarse.html" target="_blank">Afiliacion</a><a class="navbar-item"
+                        href="./reserva.html" target="_blank">Reserva</a><a class="navbar-item" href="./contacto.html"
+                        target="_blank">Contacto</a>
+                </div>
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons"><a class="control button is-rounded is-medium"
+                                href="./login.html">Admin</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <section class="section">
+        <div class="hero-body">
+            <div class="container">
+                <h2 class="title has-text-centered">
+                    Login Admin
+                </h2>
+                <div class="columns">
+                    <div class="column is-two-thirds  " id="mensajeDelogin">
+                        <div class=" field is-full" id="">
+                            <p class="control has-icons-left has-icons-right">
+                                <input class="input" type="email" placeholder="Email" id="correo">
+                            </p>
+                        </div>
+                        <div class="field">
+                            <p class="control has-icons-left">
+                                <input class="input" type="password" placeholder="Password" id="contraseña">
+
+                            </p>
+                        </div>
+                        <div class="field" id="">
+                            <p class="control">
+                                <button class="button is-success " id="btnLogin">
+                                    Login
+                                </button>
+                            </p>
+                        </div>
+
+                    </div>
+                    <hr>
+
+                    <!-- #imagen admin-->
+                    <div class="column">
+                        <figure class="image is-rounded is-3by2">
+                            <img src="./imagenes/admin.png" alt="iamgen del admin">
+                        </figure>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <hr>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-4 has-text-centered is-hidden-tablet"><a class="title is-4" href="#">Pied
+                        Piper</a>
+                </div>
+                <div class="column is-4">
+                    <div class="level"></div>
+                </div>
+                <div class="column is-4 has-text-centered is-hidden-mobile"></div>
+                <div class="column is-4 has-text-right">
+                    <div class="level"><a class="level-item" href="./contacto.html" target="_blank">Contacto</a><a
+                            class="level-item" href="https://twitter.com/yoiler_cordoba" target="_blank">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <p class="subtitle has-text-centered is-6">&copy; 2019 ParkinLP. All right reserved @yoiler_cordoba</p>
+        </div>
+    </footer>
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+    <script src="./js/confi.js"></script>
+
+    <script>
+        const btncLogin = document.getElementById('btnLogin')
+
+        // loguear usuarios con correo y contraseña
+        btnLogin.addEventListener('click', e => {
+            btncLogin.classList.add('is-loading')
+            const correo = document.getElementById('correo').value
+            const contraseña = document.getElementById('contraseña').value
+            firebase.auth().signInWithEmailAndPassword(correo, contraseña)
+                .then(resultado => {
+                    console.log(resultado);
+
+                    mensajeDelogin.innerHTML += `
+                    
+                    <div class="content" style="background-color:gainsboro; height: 50px;">
+                        <span class="is-centered">Cargando..........</span>
+                    </div>
+
+                    `
+
+
+                    location.href = "/admin.html";
+                })
+
+                .catch(function (error) {
+                    // Handle Errors here.
+                    btncLogin.classList.remove('is-loading')
+                    mensajeDelogin.innerHTML += `
+                    
+                    <div class="content is-centered" style="background-color:red; height: 50px;">
+                        <span class="is-centered">Usuario o contraseña incorrectos..</span>
+                    </div>
+                      `
+                    // ...
+                });
+        })
+
+
+        // si esta logeado, mandelo al admin
+
+        let isLoguedo = setInterval(() => {
+            firebase.auth().onAuthStateChanged(function (user) {
+                if (user) {
+                    // User is signed in.
+
+                    console.log("Logueado", user);
+                    location.href = "/admin.html";
+                } else {
+                    // User is signed out.
+                    // ...
+                    console.log("Deslogueado");
+                }
+            });
+        }, 1000)
+
+
+        addEventListener('DOMContentLoaded', e => {
+            const menu_movil = document.getElementById('menu-movil')
+            menu_movil.addEventListener('click', event => {
+                const menuMovilCont = document.querySelector('.navbar-menu')
+                menuMovilCont.classList.toggle('is-active')
+            })
+        })
+
+
+    </script>
+
+</body>
+
+</html>

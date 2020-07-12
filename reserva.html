@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bulma/bulma-theme.css">
+    <link rel="icon" href="./imagenes/logo.png">
+    <title>Formulario de Reserva</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+
+
+        <nav class="navbar bordeRadio">
+            <div class="container">
+                <div class="navbar-brand"><a class="navbar-item" href="./index.html">ParkinLP</a><a id="menu-movil"
+                        class="navbar-burger" role="button" aria-label="menu" aria-expanded="false"><span
+                            aria-hidden="true"></span><span aria-hidden="true"></span><span
+                            aria-hidden="true"></span></a></div>
+                <div class="navbar-menu">
+                    <div class="navbar-start"><a class="navbar-item" href="./index.html">Home</a><a class="navbar-item"
+                            href="./afiliarse.html" target="_blank">Afiliacion</a><a class="navbar-item"
+                            href="./reserva.html" target="_blank">Reserva</a><a class="navbar-item"
+                            href="./contacto.html" target="_blank">Contacto</a>
+                    </div>
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <div class="buttons"><a class="control button is-rounded is-medium"
+                                    href="./login.html">Admin</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <hr>
+
+
+        <!-- COlumns -->
+        <div class="columns ">
+            <div class="column"></div>
+            <div class="column is-two-fifths bordeRadio">
+                <div class="container ">
+
+                    <form action="#">
+                        <h3>Reserva del parqueadero</h3>
+                        <div class="field">
+                            <label class="label">Nombre completo</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="Nombre" required id="ReservaNombre">
+                            </div>
+                        </div>
+
+
+                        <div class="field">
+                            <label class="label">Identificacion</label>
+                            <div class="control">
+                                <input class="input" type="number" placeholder="Identificacion" required maxlength="12"
+                                    id="Reservaidentificacion">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Placa del vehiculo</label>
+                            <div class="control">
+                                <input class="input" type="text" placeholder="placa del vehiculo" required
+                                    id="ReservaPlaca" maxlength="6">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Fecha de ingreso</label>
+                            <div class="control">
+                                <input class="input" type="date" placeholder="fecha de ingreso" required
+                                    id="fechaIngreso" max="2019-12-31">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="label">Fecha de salida</label>
+                            <div class="control">
+                                <input class="input" type="date" placeholder="fecha de salida" required
+                                    id="fechaSalida">
+                            </div>
+                        </div>
+
+                        <p>Tipo de vihuculo</p>
+
+                        <div class="select" style="display: block; margin-bottom: 6px;">
+                            <select id="tipoVehiculo">
+                                <option>Automovil</option>
+                                <option>Bicicleta</option>
+                            </select>
+                        </div>
+
+                        <label class="checkbox ">
+                            <input type="checkbox" id="inputTextAreaReserva">
+                            Agregar descripcion ?
+                        </label>
+                        <div class="control">
+                            <textarea class="textarea" placeholder="Descripcion" disabled id="desVehiculo"></textarea>
+                        </div>
+                        <button class="button is-outlined" id="btnReservar" type="submit">Reservar</button>
+
+                    </form>
+                </div>
+            </div>
+            <div class="column"></div>
+        </div>
+
+        <section class="section bordeRadio">
+            <div class="container has-text-centered">
+                <h2 class="title">Nuestros sertvicios</h2>
+                <p class="subtitle">Mira todo lo que ofrecemos para el cuidado de tu vehiculo</p>
+                <div class="columns">
+                    <div class="column is-4">
+                        <div class="level">
+                            <div class="level-item">
+                                <figure class="image is-128x128"><img class="is-rounded" src="./imagenes/parqueo.svg"
+                                        alt="imagen parqueo"></figure>
+                            </div>
+                        </div>
+                        <h5 class="title is-5">Parqueo 24/7</h5>
+                        <p>Siempre estamos disponible para brindarte el mejor servicio. Tu vehiculo estara en nuestro
+                            cuidado
+                            siempre</p>
+                    </div>
+                    <div class="column is-4">
+                        <div class="level">
+                            <div class="level-item">
+                                <figure class="image is-128x128"><img class="is-rounded" src="./imagenes/reserva.svg"
+                                        alt="imagen reserva"></figure>
+                            </div>
+                        </div>
+                        <h5 class="title is-5">Reservas</h5>
+                        <p>Puesdes reservar un espacio en nuestro parqueadero para cuando no puedes ir directo al
+                            parqueadero
+                        </p>
+                    </div>
+                    <div class="column is-4">
+                        <div class="level">
+                            <div class="level-item">
+                                <figure class="image is-128x128"><img class="is-rounded" src="./imagenes/afiliacion.svg"
+                                        alt="">
+                                </figure>
+                            </div>
+                        </div>
+                        <h5 class="title is-5">Afiliacion</h5>
+                        <p>Puedes afiliarte a nosotros para poder entrar y salir cuando desees ! El cobro sera
+                            mensualmente </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br>
+
+        <section class="section">
+            <div class="container has-text-centered">
+                <h2 class="title">Menbrecias</h2>
+                <div class="columns">
+                    <div class="column">
+                        <div class="card bordeRadio">
+                            <div class="card-content">
+                                <h3 class="title is-4">Afiliacion</h3>
+                                <p class="block">Afiliate para podes entrar y salir cuando quiereas</p><a
+                                    class="button is-dark is-medium is-rounded" href="./afiliarse.html"
+                                    target="_blank">Afiliarse</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="card bordeRadio">
+                            <div class="card-content">
+                                <h3 class="title is-4">Reservas</h3>
+                                <p class="block">Reserva un espacio en nuestro parqueadero a la hora que quieras</p><a
+                                    class="button is-dark is-medium is-rounded" href="./reservar.html"
+                                    target="_blank">Reservar!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <footer class="footer">
+            <div class="container">
+                <div class="columns">
+                    <div class="column is-4 has-text-centered is-hidden-tablet"><a class="title is-4" href="#">Pied
+                            Piper</a>
+                    </div>
+                    <div class="column is-4">
+                        <div class="level"></div>
+                    </div>
+                    <div class="column is-4 has-text-centered is-hidden-mobile"></div>
+                    <div class="column is-4 has-text-right">
+                        <div class="level"><a class="level-item" href="./contacto.html" target="_blank">Contacto</a><a
+                                class="level-item" href="https://twitter.com/yoiler_cordoba" target="_blank">Twitter</a>
+                        </div>
+                    </div>
+                </div>
+                <p class="subtitle has-text-centered is-6">&copy; 2019 ParkinLP. All right reserved @yoiler_cordoba</p>
+            </div>
+        </footer>
+
+        <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-firestore.js"></script>
+        <script src="/js/confi.js"></script>
+        <script>
+            // evento para detectar el cheacked y habiliar o no el text area
+            (() => {
+                document.getElementById('inputTextAreaReserva').addEventListener('change', e => {
+                    if (e.target.checked) {
+                        document.querySelector('textarea.textarea').disabled = false
+
+                    } else {
+                        document.querySelector('textarea.textarea').disabled = true
+                    }
+                })
+
+                var fecha_actual = new Date().toISOString();
+                var minimaFecha = fecha_actual.slice(0, 10);
+                const fechaIngreso = document.getElementById('fechaIngreso'),
+                    fechaSalida = document.getElementById('fechaSalida');
+                fechaIngreso.setAttribute('min', minimaFecha)
+                fechaSalida.min = minimaFecha;
+            })()
+
+            function addReverva() {
+                let tipoVehiculo = 1;
+                const ReservaNombre = document.getElementById('ReservaNombre'),
+                    Reservaidentificacion = document.getElementById('Reservaidentificacion'),
+                    ReservaPlaca = document.getElementById('ReservaPlaca'),
+                    fechaIngreso = document.getElementById('fechaIngreso'),
+                    fechaSalida = document.getElementById('fechaSalida')
+
+                if (document.getElementById('tipoVehiculo').value == 'Bicicleta') {
+                    tipoVehiculo = 2
+                }
+
+
+
+                const btnReservar = document.getElementById('btnReservar')
+                btnReservar.addEventListener('click', e => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    btnReservar.classList.add('is-loading')
+                    let reserva = {
+                        nombre: ReservaNombre.value,
+                        identificacion: Reservaidentificacion.value,
+                        fecha_ingreso: fechaIngreso.value,
+                        fecha_salida: fechaSalida.value,
+                        tipo: tipoVehiculo,
+                        placa: ReservaPlaca.value
+                    }
+                    db.collection("reservas").add(reserva)
+                        .then(function (docRef) {
+                            console.log("Document written with ID: ", docRef.id);
+                            btnReservar.classList.remove('is-loading')
+                            alert('reserva realizada correctamente, ID : ' + docRef.id)
+                        })
+                        .catch(function (error) {
+                            console.error("Error adding document: ", error);
+                            alert('ALGO MALO PASO, INTENTELO DE NIEVO, ' + error)
+                        });
+                })
+
+            }
+
+
+
+            addReverva()
+
+            addEventListener('DOMContentLoaded', e => {
+                const menu_movil = document.getElementById('menu-movil')
+                menu_movil.addEventListener('click', event => {
+                    const menuMovilCont = document.querySelector('.navbar-menu')
+                    menuMovilCont.classList.toggle('is-active')
+                })
+            })
+
+
+        </script>
+
+
+</body>
+
+</html>
